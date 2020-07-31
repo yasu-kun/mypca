@@ -5,13 +5,14 @@ import mypca
 df = pd.read_csv("test_df_4dim.csv",header=None)
 
 data = df.drop(df.columns[0],axis=1)
-data = np.array(data)
-data = data.astype(np.float64)
+#data = np.array(data)
+#data = data.astype(np.float64)
 
 #===param===
 # n_components (if None => Not compression)
 # normalizing  defalt is True
 pca = mypca.pca(n_components=None)
+#fitするデータはdataframe
 v = pca.fit(data)
 
 #固有値

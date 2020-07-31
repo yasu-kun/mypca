@@ -19,18 +19,21 @@ class pca:
         return data
 
     def _fit(self,X):
-        #fitするための準備
-        #compornent
+        #pandas to numpy
+        X = np.array(X)
+        self.X = X.astype(np.float64)
+
+        ### Setting component
         if self.n_components is None:
-            self.n_components = X.shape[1]
+            self.n_components = self.X.shape[1]
         else:
             self.n_components = self.n_components
         
-        #normalizing 
+        #### normalizing 
         #True  => normalizing
         #False => non normalizing
         if self.normalizing is True:
-            self.X = self.normalize(X)
+            self.X = self.normalize(self.X)
         else:
             self.X = X
 
