@@ -37,11 +37,11 @@ class pca:
     def fit(self,X):
         self._fit(X)
         #平均引くか(標準化関係ない)
-        self.s = np.cov(self.X.T)
+        self.cov_ver_matrix = np.cov(self.X.T)
 
         #固有ベクトルは列ベクトル！注意！
         #固有ベクトルは１に規格化されて出力される。
-        self.eigen_value, self.eigen_vector = np.linalg.eig(self.s)
+        self.eigen_value, self.eigen_vector = np.linalg.eig(self.cov_ver_matrix)
 
         #sort
         e_v_sort = np.sort(self.eigen_value)[::-1]
